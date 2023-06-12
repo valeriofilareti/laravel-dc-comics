@@ -18,6 +18,7 @@
 <body>
 @include('partials.header')
 <main>
+    @yield('home')
     @yield('content')
 </main>
 
