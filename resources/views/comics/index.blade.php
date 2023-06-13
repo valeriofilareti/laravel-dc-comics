@@ -2,25 +2,38 @@
 
 @section('content')
 <div class="container my-5">
-    <ul>
-        @foreach ($comics as $comic)
-        <li>
-            <h3>{{$comic->title}}</h3>
-            <div class="w-25 p-3">
-                <img class="img-thumbnail" src="{{$comic->thumb}}" alt="">
-                <ul>
-                    <li>
-                        {{$comic->price}}
-                    </li>
-                    <li>
-                        {{$comic->series}}
-                    </li>
-                </ul>
-            </div>
 
-        </li>
-        @endforeach
-    </ul>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Price</th>
+                <th scope="col">Series</th>
+                <th class="pl-5" scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach ($comics as $comic)
+            <tr>
+                <td>{{$comic->title}}</td>
+                <td>{{$comic->series}}</td>
+                <td>{{$comic->price}}</td>
+                <td>
+                    <a href="{{route('comics.show', $comic->id)}}">
+                        <button type="button" class="btn btn-primary">Show</button>
+                    </a>
+                    <button type="button" class="btn btn-secondary">Edit</button>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+
 
 </div>
 
