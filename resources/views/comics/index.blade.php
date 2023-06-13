@@ -3,8 +3,11 @@
 @section('content')
 <div class="container my-5">
 
-
-
+    @if (session('deleted'))
+        <div class="alert alert-success" role="alert">
+            {{ session('deleted') }}
+        </div>
+    @endif
 
     <table class="table">
         <thead>
@@ -22,20 +25,23 @@
                 <td>{{$comic->title}}</td>
                 <td>{{$comic->series}}</td>
                 <td>{{$comic->price}}</td>
-                <td>
-                    <a href="{{route('comics.show', $comic->id)}}">
+                <td class="d-flex">
+                    <a class="mx-1" href="{{route('comics.show', $comic->id)}}">
                         <button type="button" class="btn btn-primary">Show</button>
                     </a>
-                    <a href="{{ route('comics.edit', $comic->id)}}">
+                    <a class="mx-1" href="{{ route('comics.edit', $comic->id)}}">
                         <button type="button" class="btn btn-secondary">Edit</button>
                     </a>
+                    <form action="{{route('comics.destroy', $comic->id)}}" method="POST" onsubmit="return confirm('eliminare?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger mx-1">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-
-
 
 </div>
 
