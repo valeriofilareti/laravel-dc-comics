@@ -26,7 +26,9 @@
                     <a href="{{route('comics.show', $comic->id)}}">
                         <button type="button" class="btn btn-primary">Show</button>
                     </a>
-                    <button type="button" class="btn btn-secondary">Edit</button>
+                    <a href="{{route('comics.create')}}">
+                        <button type="button" class="btn btn-secondary">Edit</button>
+                    </a>
                 </td>
             </tr>
             @endforeach
