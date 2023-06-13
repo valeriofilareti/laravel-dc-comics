@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container my-5">
+
     <h1>create</h1>
 
     @if($errors->any())
