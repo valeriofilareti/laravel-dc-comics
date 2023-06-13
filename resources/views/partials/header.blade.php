@@ -16,5 +16,5 @@
             </div>
         </div>
     </nav>
-    <h1>{{Route::currentRouteName()}}</h1>
+
 </header>
