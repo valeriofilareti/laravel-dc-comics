@@ -18,8 +18,8 @@
 <body>
 @include('partials.header')
 <main>
-    @yield('home')
     @yield('content')
+    @yield('home')
 </main>
 
 </body>
